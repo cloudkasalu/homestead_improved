@@ -1,0 +1,56 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: var(--body-font);
+    color: var(--body-color);
+}
+
+a{
+    color: var(--body-color);
+    text-decoration: none;
+}
+.anim {
+    animation: bottom 0.8s var(--delay) both;
+   } 
+
+   @keyframes bottom {
+    0% {
+     transform: translateY(100px);
+     opacity: 0;
+    }
+   
+    100% {
+     opacity: 1;
+     transform: none;
+    }
+   }
+%btn{
+    border: none;
+    border-radius: 8px;
+    // padding: 0.8rem 2rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 16px;
+}
+
+.btn_sm{
+    
+    @extend %btn;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+}
+
+.btn_primary{
+    @extend %btn;
+    background-color: var(--blue);
+    color: var(--white);
+
+    &:hover{
+        background-color:darken($blue, 20%);
+    }
+}

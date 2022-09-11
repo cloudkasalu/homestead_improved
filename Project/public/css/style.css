@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap");
+/*! imports*/
+:root {
+  --body-font: "Inter", sans-serif;
+  --theme-bg: #1f1d2b;
+  --body-color: #808191;
+  --button-bg: #353340;
+  --border-color: rgb(128 129 145 / 24%);
+  --delay: 0s;
+  --white: #fff;
+  --orange: #ff7551;
+  --blue: #32a7e2;
+  --purple: #6c5ecf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--body-color);
+}
+
+a {
+  color: var(--body-color);
+  text-decoration: none;
+}
+
+.anim {
+  -webkit-animation: bottom 0.8s var(--delay) both;
+          animation: bottom 0.8s var(--delay) both;
+}
+
+@-webkit-keyframes bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.btn_primary, .btn_sm {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  font-size: 16px;
+}
+
+.btn_sm {
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+}
+
+.btn_primary {
+  background-color: var(--blue);
+  color: var(--white);
+}
+.btn_primary:hover {
+  background-color: #166d98;
+}
+
+#App {
+  width: 100%;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--theme-bg);
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--theme-bg);
+  padding: 0rem 2rem;
+}
+header .header_search_bar form {
+  height: 34px;
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+header .header_search_bar form input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 40px 0 16px;
+  background-color: var(--button-bg);
+  font-family: var(--body-font);
+  box-shadow: 0 0 0 2px rgba(134, 140, 160, 0.02);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56.966 56.966' fill='%23717790c7'%3e%3cpath d='M55.146 51.887L41.588 37.786A22.926 22.926 0 0046.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 00.083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z'/%3e%3c/svg%3e");
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: 96%;
+  color: #fff;
+}
+header .header_icons {
+  flex-basis: 50%;
+}
+header .header_icons_list {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.sidebar {
+  background-color: var(--theme-bg);
+  padding-left: 2rem;
+  width: 20%;
+}
+.sidebar nav {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.sidebar nav .brand {
+  width: 100%;
+  height: 80px;
+  margin: auto;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 24px;
+}
+.sidebar nav ul {
+  list-style-type: none;
+}
+.sidebar nav ul li a {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sidebar nav ul li a:hover {
+  color: white;
+  font-weight: 600;
+}
+.sidebar nav ul li a:hover:nth-child(1) .iconify-icon {
+  background-color: var(--orange);
+  color: white;
+}
+.sidebar nav ul li a:hover:nth-child(2) .iconify-icon {
+  background-color: var(--blue);
+  color: white;
+}
+.sidebar nav ul li a:hover:nth-child(3) .iconify-icon {
+  background-color: var(--purple);
+  color: white;
+}
+.sidebar nav ul li a .iconify_icon {
+  width: 30px;
+  height: 30px;
+  background-color: var(--button-bg);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+.sidebar nav ul li a .iconify_icon:nth-last-of-type(2) {
+  background-color: var(--orange);
+  color: white;
+}
+.sidebar nav ul li a .iconify_icon svg {
+  font-size: 18px;
+}
+.sidebar .side_title {
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 1.5rem 0;
+}
+
+.main_section {
+  flex-basis: 80%;
+  flex-grow: 1;
+  overflow: auto;
+  padding: 2rem;
+}
+
+#Authentication {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+  background: url(https://images.unsplash.com/photo-1660551772352-0855c10356b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#Authentication form {
+  width: 100%;
+  height: 70vh;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.37);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+}
+#Authentication form input {
+  margin-bottom: 1rem;
+}
+#Authentication form label {
+  color: var(--button-bg);
+}
+#Authentication form .btn {
+  max-width: 150px;
+  margin-top: 2rem;
+}
+
+.container {
+  max-width: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4588235294);
+  border-radius: 8px;
+  font-family: var(--body-font);
+  font-size: 14px;
+  padding: 0.8rem 0.5rem;
+  font-weight: 500;
+  color: var(--button-bg);
+}
+
+blockquote {
+  background-color: #353340;
+  max-width: 600px;
+  margin: 1rem 0;
+  border-radius: 8px;
+  padding: 2rem 1rem;
+}
+
+.buttons {
+  height: 30px;
+  display: flex;
+  justify-content: end;
+}/*# sourceMappingURL=style.css.map */
