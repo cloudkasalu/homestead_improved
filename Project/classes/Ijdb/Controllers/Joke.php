@@ -32,6 +32,7 @@ class Joke{
 
             $jokes[] = [
                 'id' => $joke['id'],
+                'authorId' => $joke['authorid'],
                 'joketext' => $joke['joketext'],
                 'jokedate' => $joke['jokedate'],
                 'name' => $author['name'],
@@ -42,10 +43,11 @@ class Joke{
         $title = 'Joke List';
         $totalJokes = $this->jokesTable->total();
 
-
+        $author = $this->authentication->getUser();
 
         return ['template' =>'jokes.html.php', 'title'=>$title, 'variables'=>[
             'jokes'=> $jokes,
+            'userId' => $author['id'] ?? null,
             'totalJokes'=> $totalJokes
         ]];
     }
@@ -58,6 +60,13 @@ class Joke{
     }
 
     public function delete() {
+        $joke = $this->jokesTable->findById($_POST['id']);
+
+        $author = $this->authentication->getUser();
+
+        if($joke['authorid'] != $author['id']){
+            return;
+        }
         $this->jokesTable->delete($_POST['id']);
         header('location: /joke/list');
         }
@@ -65,6 +74,16 @@ class Joke{
     public function saveEdit(){
 
         $author = $this->authentication->getUser();
+
+
+        if(isset($_GET['id'])){    
+            $joke = $this->jokesTable->findById($_GET['id']);
+
+            if($joke['authorid'] != $author['id']){
+                return;
+            }
+    
+        }
 
         $joke = $_POST['joke'];
         $joke['jokedate'] = new \DateTime();
@@ -78,6 +97,7 @@ class Joke{
 
     public function edit(){
 
+        $author = $this->authentication->getUser();
 
         if(isset($_GET['id'])){    
             $joke = $this->jokesTable->findById($_GET['id']);
@@ -87,12 +107,15 @@ class Joke{
         $title = 'Edit joke';
     
         return ['template' =>'editjoke.html.php', 'title'=>$title, 'variables'=>[
-            'joke'=> $joke ?? null
+            'joke'=> $joke ?? null,
+            'userId' => $author['id'] ?? null
         ]];;
 
 
 
     }
+
+
 }
 
 

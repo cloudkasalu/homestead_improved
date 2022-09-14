@@ -16,6 +16,7 @@
 
                ?>)
             </p>
+            <?php if($userId == $joke['authorId']): ?>
             <div class="buttons">
             <a class="btn_sm" href="/joke/edit?id=<?=$joke['id']?>">Edit</a>
             <form action="/joke/delete" method="post">
@@ -23,6 +24,7 @@
             <input class="btn_sm" type="submit" value="Delete">
             </form>
             </div>
+            <?php endif ?>
 
         </blockquote>
     <?php endforeach;?>
